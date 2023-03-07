@@ -1,0 +1,70 @@
+/* reset */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: inherit;
+}
+
+/* avoid seeing invisible SVG elements while loading; visibility will be restored on load event */
+#all {
+  visibility: hidden;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-image: url("../images/background.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.drawing {
+  height: 95%;
+}
+
+/* micro-animations */
+@keyframes scalingCircle {
+  0% {
+    transform: scale(0.7);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.circle-left-pulsating {
+  transform-origin: 29.5px 529px;
+  animation: scalingCircle 0.9s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate;
+}
+.circle-right-pulsating {
+  transform-origin: 1250px 529px;
+  animation: scalingCircle 0.9s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate;
+}
+@keyframes jumpScoreLeft {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-40px);
+  }
+}
+.winLeft {
+  transform-origin: center;
+  animation: jumpScoreLeft 0.6s cubic-bezier(0, 0.55, 0.45, 1) 0.3s 4 alternate;
+}
+@keyframes jumpScoreRight {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-40px);
+  }
+}
+.winRight {
+  transform-origin: center;
+  animation: jumpScoreRight 0.6s cubic-bezier(0, 0.55, 0.45, 1) 0.3s 4 alternate;
+}
